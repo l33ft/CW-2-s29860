@@ -1,0 +1,7 @@
+﻿# Ignoruj foldery kompilacji
+bin/
+obj/
+
+# Pliki tymczasowe Ridera
+.idea/
+.vs/
