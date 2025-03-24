@@ -1,7 +1,7 @@
 # CW-2-s29860
 
 # Przedmiot: Aplikacje Baz Danych
-## System Zarządzania Kontenerami
+# System Zarządzania Kontenerami
 
 ## Przegląd
 System Zarządzania Kontenerami to aplikacja w języku C# zaprojektowana do zarządzania załadunkiem i transportem różnych typów kontenerów transportowych na statkach kontenerowych. System obsługuje różne typy kontenerów (na płyny, gaz, chłodnicze), każdy z określonymi właściwościami i ograniczeniami.
