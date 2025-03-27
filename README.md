@@ -4,52 +4,27 @@
 # System Zarządzania Kontenerami
 
 ## Przegląd
-System Zarządzania Kontenerami to aplikacja w języku C# zaprojektowana do zarządzania załadunkiem i transportem różnych typów kontenerów transportowych na statkach kontenerowych. System obsługuje różne typy kontenerów (na płyny, gaz, chłodnicze), każdy z określonymi właściwościami i ograniczeniami.
+Aplikacja zarządzająca załadunkiem i transportem kontenerów na statkach. Obsługuje różne typy kontenerów z uwzględnieniem specyficznych wymagań bezpieczeństwa i transportowych.
 
 ## Funkcjonalności
 
 ### Typy Kontenerów
-- **Kontener Bazowy:** Klasa abstrakcyjna z wspólnymi właściwościami jak wymiary, waga, pojemność i unikalny system numeracji
-- **Kontener na Płyny:** Do transportu płynów ze szczególnym uwzględnieniem materiałów niebezpiecznych
-- **Kontener na Gaz:** Do transportu gazów z monitorowaniem ciśnienia i funkcjami bezpieczeństwa
-- **Kontener Chłodniczy:** Kontenery z kontrolowaną temperaturą dla produktów spożywczych z walidacją typu produktu
+- Kontener Bazowy
+- Kontener na Płyny
+- Kontener na Gaz
+- Kontener Chłodniczy
 
-### Funkcjonalność Kontenerów
-- Automatyczne generowanie numerów seryjnych (format KON-X-Y)
-- Załadunek towaru z walidacją pojemności
-- Opróżnianie kontenera ze specjalnym traktowaniem kontenerów gazowych (5% retencji)
-- Egzekwowanie wymagań temperaturowych produktów
-- Powiadomienia o zagrożeniach dla niebezpiecznych operacji
+### Kluczowe Możliwości
+- Automatyczne generowanie numerów seryjnych
+- Walidacja załadunku towaru
+- Kontrola wagi i pojemności kontenerów
+- Zarządzanie statkami kontenerowymi
+- Powiadomienia o zagrożeniach
 
-### Zarządzanie Statkami
-- Śledzenie inwentarza kontenerów na statkach
-- Egzekwowanie limitów wagi i pojemności
-- Załadunek i rozładunek kontenerów
-- Transfery kontenerów między statkami
-- Operacje wymiany kontenerów
-- Szczegółowe raportowanie statusu statków i ich zawartości
+## Przykłady Użycia
 
-### Funkcje Bezpieczeństwa
-- Obsługa materiałów niebezpiecznych (limit napełnienia 50%)
-- Ograniczenie dla płynów nienebezpiecznych (limit napełnienia 90%)
-- Ochrona przed przepełnieniem z niestandardowymi wyjątkami
-- Walidacja temperatury dla towarów chłodniczych
-- Śledzenie ciśnienia dla kontenerów gazowych
-
-## Szczegóły Techniczne
-
-### Struktura Klas
-- `IHazardNotifier`: Interfejs do obsługi i powiadamiania o niebezpiecznych sytuacjach
-- `Container`: Abstrakcyjna klasa implementująca wspólną funkcjonalność kontenerów
-- `LiquidContainer`, `GasContainer`, `RefrigeratedContainer`: Specjalistyczne implementacje kontenerów
-- `ContainerShip`: Klasa dla operacji statków kontenerowych
-- `OverfillException`: Niestandardowy wyjątek dla naruszeń pojemności
-
-### Przykłady Kodu
-
-#### Tworzenie Kontenerów
 ```csharp
-// Tworzenie na banany
+// Tworzenie kontenera chłodniczego
 RefrigeratedContainer banany = new RefrigeratedContainer(
     height: 220, 
     weight: 800, 
@@ -59,33 +34,23 @@ RefrigeratedContainer banany = new RefrigeratedContainer(
     temperature: 12
 );
 
-// Tworzenie kontenera dla paliwa
-LiquidContainer paliwo = new LiquidContainer(
-    height: 250, 
-    weight: 500, 
-    depth: 200, 
-    maxCapacity: 8000, 
-    isHazardous: true
-);
-```
-
-#### Operacje Załadunku
-```csharp
-// Załadowanie kontenera towarem
-banany.LoadCargo(9000);
-
-// Załadowanie kontenera na statek
+// Załadunek na statek
 olympus.LoadContainer(banany);
-
-// Przeniesienie kontenera między statkami
-olympus.TransferContainer("KON-C-1", atlas);
 ```
 
-## Przykłady Użycia
+## Funkcje Bezpieczeństwa
+- Ograniczenie napełnienia kontenerów
+- Kontrola temperatury produktów
+- Monitorowanie ciśnienia w kontenerach gazowych
+- Zabezpieczenie przed przepełnieniem
 
-System zawiera walidację zapobiegającą operacjom takim jak:
-- Przepełnianie kontenerów ponad ich pojemność
-- Ustawianie niewystarczających temperatur chłodzenia dla produktów
-- Przekraczanie limitów wagi i pojemności statków
+## Technologie
+- Język: C#
+- Paradygmat: Programowanie obiektowe
+- Środowisko: .NET
 
-System umożliwia efektywne zarządzanie flotą kontenerów i statków, z uwzględnieniem wszystkich ograniczeń bezpieczeństwa i operacyjnych wymagań.
+## Instalacja
+1. Sklonuj repozytorium
+2. Otwórz projekt w Visual Studio
+3. Zbuduj rozwiązanie
+   
