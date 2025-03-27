@@ -19,7 +19,6 @@ public class ContainerShip
 
     public bool LoadContainer(Container container)
     {
-        // Check if ship is at capacity
         if (containers.Count >= MaxContainers)
         {
             Console.WriteLine($"Cannot load container {container.SerialNumber}: Ship at maximum container capacity");

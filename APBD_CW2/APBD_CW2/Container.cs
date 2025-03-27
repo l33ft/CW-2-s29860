@@ -23,7 +23,6 @@ public abstract class Container : IHazardNotifier
         Depth = depth;
         MaxCapacity = maxCapacity;
         CurrentLoad = 0;
-        
         int serialIndex = serials[type];
         SerialNumber = $"KON-{type}-{serialIndex}";
         serials[type]++;

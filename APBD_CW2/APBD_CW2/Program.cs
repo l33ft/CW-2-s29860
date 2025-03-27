@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using APBD_CW2;
+﻿using APBD_CW2;
 
 class Program
 {
